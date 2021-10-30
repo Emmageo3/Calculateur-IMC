@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul IMC</title>
+</head>
+<body>
+    
+    <script language="JavaScript" type="text/javascript">
+
+        function Valider(ideal)
+            {
+                
+                var taille = document.ideal.taille.value
+                var poids = document.ideal.poids.value
+                    if ((taille == "Entrez votre taille (en cm) ici.")|| (taille == "")|| (poids == "Entrez votre poids ici.")|| (poids == ""))   //alert si un champ n'esp pas renseigné
+                        {
+                            alert("Si vous voulez que je calcule votre indice de masse corporel ainsi que votre poids idéal il faut que vous entrez vos mensuration");
+                        }
+                        else
+                        {
+                        //Fonction calcul de l'imc
+                    var nombre1 = (taille*0.01)          //convertion de la taille des centimètres en mètres
+                    var nombre2 = (nombre1*nombre1)      //taille au carré
+                    var nombre3 = (poids/nombre2)        //poids divisé par la taille
+                    alert("Votre indice de masse corporel est de: " + nombre3 + "!");
+                    
+                    // Message d'alerte en fonction de l'imc
+                    
+                    if (nombre3 <= 16)
+                    {
+                    alert("Votre indice est un très faible, c'est à dire que vous êtes très maigre. Il faut faire très attention, je vous recomande de voir un nutrioniste!")
+                    }
+                    if (nombre3 <=18 && nombre3 >16)
+                    {
+                    alert("Votre indice est faible, vous êtes maigre, il faut surveiller votre ligne!");
+                    }
+                    if (nombre3 <=20 && nombre3 >18)
+                    {
+                    alert("Vous êtes en leger + sous-poids + , il faut manger!!!");
+                    }
+                    if (nombre3 <=24 && nombre3 >20)
+                    {
+                    alert("Vous êtes dans la moyenne, ne vous inquietez pas!");
+                    }
+                    if (nombre3 <=26 && nombre3 >24)
+                    {
+                    alert("Vous êtes en très leger sur-poids, ce n'est pas bien grave");
+                    }
+                    if (nombre3 <=28 && nombre3 >26)
+                    {
+                    alert("Vous êtes en sur-poids mais ce n'est pas iratrappable!");
+                    }
+                    if (nombre3 <=32 && nombre3 >28)
+                    {
+                    alert("Vous êtes en sur-poids!");
+                    }
+                    if (nombre3 >32)
+                    {
+                    alert("Vous êtes vraiment en sur-poids, je vous conseil de voir un nutritioniste pour qu'il vous adapte un regime personnalisé.");
+                    }
+                    
+                    
+                    //Fonction calcul du poid parfait
+                    
+                    var nombre4 = (22*nombre2)         //22 est l'indice parfait
+                    alert("Votre poids idéal est de: " + nombre4 + "!");
+                        
+                        }
+            }
+        </script>
+        </head>
+        <body bgcolor="pink" text="#ffffff">
+        <div align="center">
+        <br /><br /><br />
+        <table>
+        <tr>
+        <td width="850" bgcolor="white" align="center" height="700">
+        <table border="3" bordercolor="white" >
+        <tr>
+        <td width="250">
+        <form action="" method="post" name="ideal" id="ideal">
+        <br /><br /><br /><br /><br /><br /><br />
+        &nbsp;&nbsp;&nbsp;<input type="text" value="Entrez votre taille (en cm) ici..." name="taille" OnFocus="this.value=''" size="50"><br /><br />
+        &nbsp;&nbsp;&nbsp;<input type="text" value="Entrez votre poids ici..." name="poids" OnFocus="this.value=''" size="50"><br /><br />
+        &nbsp;&nbsp;&nbsp;<input type="button" value="Calculer" name="calculez" OnClick="Valider(this.form)"><br />
+        &nbsp;&nbsp;&nbsp;<input type="reset" value="Remettre à zero" name="reset"><br /><br /><br />
+        </form>
+        </td>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        </table>
+        <br /><br /><br />
+
+</body>
+</html>
